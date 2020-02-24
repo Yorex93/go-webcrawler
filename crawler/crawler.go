@@ -6,5 +6,11 @@ type SiteMap struct {
 }
 
 func BuildSiteMap(siteUrl string) SiteMap {
-	return SiteMap{}
+	var result SiteMap
+
+	links := crawl(siteUrl)
+	result.siteUrls = links
+	result.baseUrl = siteUrl
+
+	return result
 }

@@ -2,10 +2,11 @@ package crawler
 
 // A single crawl task
 func crawl(site string) []string {
+	var links []string
 	resp, err := fetchHtml(site)
 	if err != nil {
-		return []string{}
+		return links
 	}
-	siteUrls := parseHtml(resp)
-	return siteUrls
+	links = parseHtml(resp)
+	return links
 }
